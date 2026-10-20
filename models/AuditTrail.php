@@ -144,12 +144,12 @@ class AuditTrail extends CActiveRecord {
         
         $values = [];
         foreach($rows as $row){
-            $values[] = Yii::app()->db->quoteValue($row['old_value']).",".
-                        Yii::app()->db->quoteValue($row['new_value']).",".
-                        Yii::app()->db->quoteValue($row['action']).",".
+            $values[] = Yii::app()->db->quoteValue((string) $row['old_value']).",".
+                        Yii::app()->db->quoteValue((string) $row['new_value']).",".
+                        Yii::app()->db->quoteValue((string) $row['action']).",".
                         "'".$model."',".
-                        Yii::app()->db->quoteValue($row['field']).",".
-                        Yii::app()->db->quoteValue($stamp).",".
+                        Yii::app()->db->quoteValue((string) $row['field']).",".
+                        Yii::app()->db->quoteValue((string) $stamp).",".
                         "'".$user_id."',".
                         "'".$model_id."'";
         }
